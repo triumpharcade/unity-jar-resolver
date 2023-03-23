@@ -443,7 +443,7 @@ public class IOSResolver : AssetPostprocessor {
     // Default paths to search for the "pod" command before falling back to
     // querying the Ruby Gem tool for the environment.
     private static string[] BREW_SEARCH_PATHS = new string[] {
-        "/opt/homebrew/bin"
+        "~/.triumph/brew/bin"
     };
     // Ruby Gem executable filename.
     private static string BREW_EXECUTABLE = "brew";
@@ -1783,8 +1783,19 @@ public class IOSResolver : AssetPostprocessor {
                                                  "application.\n\n" +
                                                  "For more information see:\n" +
                                                  "  https://guides.cocoapods.org/using/getting-started.html\n\n";
-        
+
         var brewPath = FindBrew();
+        if (string.IsNullOrEmpty(brewPath))
+        {
+            // Install brew in our temporary location
+            RunCommand("mkdir", "~/.triumph");
+            RunCommand("curl", "https://github.com/Homebrew/brew/zipball/master -L -o ~/.triumph/brew.zip");
+            RunCommand("unzip", "~/.triumph/brew.zip -d ~/.triumph/");
+            RunCommand("mv", "~/.triumph/Homebrew-brew-* ~/.triumph/brew/");
+            RunCommand("rm", "-rf ~/.triumph/brew.zip");
+        }
+
+        // double check that brew is installed
         if (string.IsNullOrEmpty(brewPath))
         {
             logMessage(
