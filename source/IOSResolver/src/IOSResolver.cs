@@ -443,7 +443,8 @@ public class IOSResolver : AssetPostprocessor {
     // Default paths to search for the "pod" command before falling back to
     // querying the Ruby Gem tool for the environment.
     private static string[] BREW_SEARCH_PATHS = new string[] {
-        "/opt/homebrew/bin"
+        "/opt/homebrew/bin", // arm64 (Apple Silicon)
+        "/usr/local/bin" // x86_64 (Intel)
     };
     // Ruby Gem executable filename.
     private static string BREW_EXECUTABLE = "brew";
