@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: c3a4db753c154822b84671ce6df74c09
+guid: 8045c48639294184a96755605c3d03ff
 labels:
-- gvh_version-1.2.144
-- gvhp_exportpath-ExternalDependencyManager/Editor/Google.UnityPackageManagerResolver_v1.2.144.pdb
+- gvh_version-1.2.175
+- gvhp_exportpath-ExternalDependencyManager/Editor/1.2.175/Google.PackageManagerResolver.pdb
 - gvh
 timeCreated: 1538009133
 licenseType: Pro
