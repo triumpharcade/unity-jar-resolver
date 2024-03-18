@@ -1,4 +1,6 @@
 External Dependency Manager for Unity
+
+Forked from unity: we use this for proper installation of cocoapods on MacOS with different versions. 
 ========
 
 # Overview
